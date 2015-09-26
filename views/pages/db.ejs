@@ -1,23 +1,115 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <% include ../partials/header.ejs %>
-</head>
+  <head>
+    <title>Outside the Traffic Box</title>
+    <!-- <meta name="viewport" content="initial-scale=1.0"> -->
+    <!-- <meta charset="utf-8"> -->
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+      #legend {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+      }
+      #legend h3 {
+        margin-top: 0;
+      }
+      #legend img {
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="legend">
+      <h1>Outside the Traffic Box</h1>
+      <p>
+        <blockquote>
+          "This polygon represents the traffic box for the<br>
+          <a href="http://www.worldmeeting2015.org/">2015 World Meeting of Families</a>.<br><br>
+          Traffic will not be permitted to enter this area when<br>
+          the traffic box takes effect on September 25, 2015."
+        </blockquote>
+      </p>
+      
+      <p>
+        <h3>
+          To demonstrate how the Papal visit will affect<br>
+          the residents of Philly and to provide visitors<br>
+          with some context about the city, I juxtaposed<br>
+          the map of the "traffix box" (in Vatican colors)<br>
+          with a map of Philly's schools. Explore!
+        </h3>
+      </p>
 
-<body>
+      <p>
+        My original intention was to show how issues the<br>
+        Pope will discuss in Philadelphia, like immigration<br>
+        and poverty, manifest themselves in the city.
+      </p>
+      <p>
+        Here are some related links:
+        <ul>
+          <li>
+            Map: <a href="http://www.nytimes.com/interactive/2015/08/28/us/papal-visit-schedule.html" target="_blank">Pope Francis' U.S. Visit Schedule</a>
+          </li>
+          <li>
+            Photo: <a href="images/PhillyItinerary.png" target="_blank">Papal Itinerary in Philadelphia</a>
+          </li>
+          <li>
+            Map: <a href="http://www.nytimes.com/newsgraphics/2014/01/05/poverty-map/" target="_blank">Mapping Poverty in America</a>
+          </li>
+          <li>
+            Photo: <a href="images/PhillyPoverty.png" target="_blank">Mapping Poverty in Philadelphia</a>
+          </li>
+          <li>
+            Map: <a href="http://demographics.coopercenter.org/DotMap/" target="_blank">The Racial Dot Map: One Dot Per Person</a>
+          </li>
+          <li>
+            Photo: <a href="http://www.wired.com/images_blogs/design/2013/08/phillyphilly.jpg" target="_blank">Racial Dot Map in Philadelphia</a>
+          </li>
+        </ul>
+      </p>
 
-<% include ../partials/nav.ejs %>
+      <p>
+        - <a href="https://twitter.com/YoniNachmany">@YoniNachmany</a>
+      </p>
+    </div>
+  </body>
+    
+  <script>
 
-<div class="container">
-<h2>Database Results</h2>
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: {lat: 39.957492, lng: -75.168894}
+    });
 
-<ul>
-    <% results.forEach(function(r) { %>
-        <li><%= r.id %> - <%= r.name %></li>
-    <% }); %>
-</ul>
+    // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+    map.data.loadGeoJson('geojson/WMoF_TrafficBox.geojson');
+    map.data.loadGeoJson('geojson/Schools.geojson');
 
-</div>
+    var legend = document.getElementById('legend');
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
-</body>
+    map.data.setStyle({
+      fillColor: 'yellow',
+      strokeColor: 'white',
+      icon: 'http://maps.google.com/mapfiles/kml/pal3/icon31.png'
+    });
+  }
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js? key=AIzaSyB47vRAzgLYxTSPUM-BGmvjqj6cW3Lhi3I&signed_in=true&callback=initMap"></script>
 </html>
