@@ -1,38 +1,28 @@
-# node-js-getting-started
+# Outside the Traffic Box
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+https://outsidethetrafficbox.herokuapp.com/
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+>This polygon represents the traffic box for the
+[2015 World Meeting of Families](http://www.worldmeeting2015.org/).
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+>Traffic will not be permitted to enter this area when
+the traffic box takes effect on September 25, 2015."
 
-## Running Locally
+To demonstrate how the Papal visit will affect
+the residents of Philly and to provide visitors
+with some context about the city, I juxtaposed
+the map of the ["traffic box"](https://www.opendataphilly.org/dataset/world-meeting-of-families-traffic-box) (in Vatican colors)
+with a map of [Philly's schools](https://www.opendataphilly.org/dataset/schools). Explore!
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+My original intention was to show how issues the
+Pope will discuss in Philadelphia, like immigration
+and poverty, manifest themselves in the city.
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+Here are some related links:
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+Map: [Pope Francis' U.S. Visit Schedule](http://www.nytimes.com/interactive/2015/08/28/us/papal-visit-schedule.html)
+Photo: [Papal Itinerary in Philadelphia](https://outsidethetrafficbox.herokuapp.com/images/PhillyItinerary.png)
+Map: [Mapping Poverty in America](http://www.nytimes.com/newsgraphics/2014/01/05/poverty-map/)
+Photo: [Mapping Poverty in Philadelphia](https://outsidethetrafficbox.herokuapp.com/images/PhillyPoverty.png)
+Map: [The Racial Dot Map: One Dot Per Person](http://demographics.coopercenter.org/DotMap/)
+Photo: [Racial Dot Map in Philadelphia](http://www.wired.com/images_blogs/design/2013/08/phillyphilly.jpg)
